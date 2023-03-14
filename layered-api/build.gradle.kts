@@ -6,6 +6,6 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":layered-domain"))
+    implementation(project(":layered-domain-jpa"))
     implementation("org.springframework.boot:spring-boot-starter-web")
 }

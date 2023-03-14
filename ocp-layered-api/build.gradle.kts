@@ -7,8 +7,7 @@ plugins {
 
 dependencies {
     implementation(project(":ocp-layered-api-domain-port"))
-//    runtimeOnly(project(":ocp-layered-domain"))
-    implementation(project(":ocp-layered-domain"))
+    implementation(project(":ocp-layered-domain-jpa"))
     implementation("org.springframework.boot:spring-boot-starter-web")
     runtimeOnly("com.h2database:h2")
 }

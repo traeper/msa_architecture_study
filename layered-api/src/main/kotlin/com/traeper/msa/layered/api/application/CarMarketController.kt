@@ -16,8 +16,4 @@ class CarMarketController(
     @GetMapping("{carId}")
     fun getCar(@PathVariable carId: Long): CarResponse =
         carMarketService.getCar(carId)
-
-//    @PostMapping("{carId}/buy")
-//    fun buyCar(@PathVariable carId: Long): CarResponse =
-//        carMarketService.buyCar(carId)
 }

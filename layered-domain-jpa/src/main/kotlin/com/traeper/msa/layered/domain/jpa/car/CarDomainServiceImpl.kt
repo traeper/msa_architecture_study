@@ -1,7 +1,7 @@
-package com.traeper.msa.layered.domain.car
+package com.traeper.msa.layered.domain.jpa.car
 
-import com.traeper.msa.layered.api.domain.port.car.CarDomainService
-import com.traeper.msa.layered.api.domain.port.car.model.Car
+import com.traeper.msa.layered.domain.jpa.car.port.CarDomainService
+import com.traeper.msa.layered.domain.jpa.car.port.model.Car
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
 

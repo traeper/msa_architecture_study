@@ -1,4 +1,4 @@
-package com.traeper.msa.layered.domain.car
+package com.traeper.msa.layered.domain.jpa.car
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
