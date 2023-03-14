@@ -8,7 +8,7 @@ api는 domain이 변경될 때마다 직접적인 영향을 받는다. domain �
   * layered-domain
 
 ## ocp-layered 아키텍처
-기존 layered 아키텍처와 다르게 api-domain-port의 인터페이스 모듈을 추가하였다.
+OCP를 충족시키는 아키텍처이다. 기존 layered 아키텍처와 다르게 api-domain-port의 인터페이스 모듈을 추가하였다.
 api는 인터페이스 모듈에 대해 의존하도록 개발하고 domain은 인터페이스를 구현한 빈을 제공한다.     
 
 [CarMarketService.kt](./ocp-layered-api/src/main/kotlin/com/traeper/msa/layered/api/application/CarMarketService.kt) 파일 참조
