@@ -82,15 +82,15 @@ OCP의 핵심은 상위 모듈이 하위 모듈의 변경에 대해 자유로워
 
 ![ocp_layered_architecture.png](./resources/ocp_layered_architecture.png)
 
-위는 OCP를 충족시키는 아키텍처이다. 기존 layered 아키텍처와 다르게 Persistence Port라는 인터페이스 레이어를 추가하였다.
-Application은 Persistence Port 모듈에 자신의 요구사항을 명시하며 의존한다. Persistence는 해당 인터페이스를 구현하며 실행시간에 빈을 제공하도록 한다.
+위는 OCP를 충족시키는 아키텍처이다. 기존 layered 아키텍처와 다르게 Persistence Port 인터페이스 모듈을 Application 레이어에 추가하였다.
+Application은 Persistence Port 모듈에 자신의 요구사항을 명시하고 의존한다. Persistence는 해당 인터페이스를 구현하며 실행시간에 빈을 제공하도록 한다.
 
 ### 모듈 구성
 * [ocp-layered-api](ocp-layered-api%2Fsrc%2Fmain%2Fkotlin%2Fcom%2Ftraeper%2Fmsa%2Flayered%2Fapi) : Presentation, Application 레이어를 갖는 모듈, 기존 layered 구조와 거의 차이가 없다.
 * [ocp-layered-api-domain-port](ocp-layered-api-domain-port%2Fsrc%2Fmain%2Fkotlin%2Fcom%2Ftraeper%2Fmsa%2Flayered%2Fapi%2Fdomain%2Fport) : Persistence Port 모듈이며 Application이 Persistence 레이어에 원하는 요구사항을 명세한 인터페이스 모듈
 * [ocp-layered-domain-jpa](ocp-layered-domain-jpa%2Fsrc%2Fmain%2Fkotlin%2Fcom%2Ftraeper%2Fmsa%2Flayered%2Fdomain%2Fjpa) : Persistence 레이어 모듈이며 Persistence Port의 인터페이스를 따르는 JPA의 구현체를 작성하는 모듈
 
-모듈 구성을 보면 ocp-layered-api-domain-port이 추가된 것을 볼 수 있다. Application이 Persistence 레이어에 원하는 요구사항을 명세한 인터페이스 모듈이라고 정의해봤다. 즉 갑(api)의 요구사항을 명시하고 을(domain-jpa)이 요구사항을 충실히 구현하도록 하는 것이다.  
+모듈 구성을 보면 ocp-layered-api-domain-port이 추가된 것을 볼 수 있다. Application이 Persistence 레이어에 원하는 요구사항을 명세한 인터페이스 모듈이라고 이해하면 된다. 갑(api)의 요구사항을 명시하고 을(domain-jpa)이 요구사항을 충실히 구현하는 방향으로 이해하자.
 
 ### DIP 뿐만 아니라 OCP를 만족하는 Layered 아키텍처
 
@@ -145,8 +145,6 @@ CarDomainService와 CarDomainServiceImpl이 서로 다른 모듈에 위치하는
 api 모듈은 컴파일 시간에는 인터페이스에 의존하고 실행 시간에는 구현체의 빈에 의존하여 작동하게 된다.
 
 물론 이렇게만 작성한다고 자동으로 OCP가 100% 충족이 되는 것은 아니다. 인터페이스가 특정 기술이나 구현체에 종속적으로 변하지 않도록 갑(api)의 입장에서 인터페이스를 바라보고 오염되지 않도록 경계하는 습관을 가져야 한다.
-
-물론 이렇게만 작성한다고 자동으로 OCP가 100% 충족이 되는 것은 아니다. 지속적으로 유지보수를 하면서 특정 기술이나 구현체에 종속적으로 변하지 않도록 갑(api)의 입장에서 인터페이스를 바라보는 습관을 가져야 한다.
 
 ## 요약
 * JPA, Redis, 기타 시스템 등 구체적인 기술이나 스펙에 구체적으로 의존하는 모듈이 있다면 인터페이스는 외부에 전용 모듈로 추출하고 기술보단 서비스의 요구사항을 담도록 노력하자. 
