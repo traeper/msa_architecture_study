@@ -6,7 +6,9 @@ Layered 아키텍처는 웹서비스 개발 시 가장 널리 쓰이며 역할�
 * Persistence 레이어 : DB에 접근하여 영구적으로 데이터를 쓰고 읽는 각종 인터페이스를 제공한다.
 
 Layered 아키텍처는 의존성의 방향이 위에서 아래로의 한 방향으로만 흘러가므로 구현 난이도가 쉬운 것이 장점이지만 객체지향적인 측면에서 조금 부족할 수 있다. 
-글을 진행하기에 앞서 용어가 혼동될 수 있는데 Application == api, Persistence == domain-jpa 라고 대략 이해하면서 읽어주시면 충분할듯 하다.  🙇‍🙇‍️
+글을 진행하기에 앞서 용어가 혼동될 수 있는데 Application == api, Persistence == domain-jpa 라고 이해하면서 읽어주시면 충분할듯 하다.  🙇‍🙇‍️
+
+비침투성 개발을 지향하는 Spring Framework 관련 이야기라기 보단 Layered Architecture에서 Application Layer와 Persistence Layer 간 관계에 한정하여 글을 작성했음을 양해 부탁드린다.
 
 ## Layered 아키텍처
 ![normal_layered_architecture.png](./resources/normal_layered_architecture.png)
